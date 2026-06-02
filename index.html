@@ -185,7 +185,8 @@ section{padding:68px 22px;position:relative}
 .pkg-feats{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:26px}
 .pkg-feats li{font-size:13px;color:rgba(245,240,232,0.6);display:flex;align-items:flex-start;gap:10px;line-height:1.4}
 .pkg-feats li::before{content:'✦';color:var(--gold);font-size:8px;flex-shrink:0;margin-top:3px}
-  /* TRACKER */
+
+/* TRACKER */
 .tracker-section{background:var(--dark2);border-top:1px solid rgba(201,168,76,0.08)}
 .tracker-card{margin-top:36px;border:1px solid rgba(201,168,76,0.15);padding:26px 18px;background:var(--black);position:relative;overflow:hidden}
 .tracker-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent)}
@@ -444,7 +445,9 @@ footer{background:var(--dark);border-top:1px solid rgba(201,168,76,0.1);padding:
     <a href="https://wa.me/919342787621?text=Hi%20REVORA%2C%20I%20need%20help" class="chat-action wa" target="_blank" rel="noopener">💬 WhatsApp Chat</a>
     <a href="tel:+919342787621" class="chat-action call">📞 Call Now</a>
   </div>
-</div><!-- PRIVACY MODAL -->
+</div>
+
+<!-- PRIVACY MODAL -->
 <div class="modal-overlay" id="privacyModal" onclick="closeModal('privacyModal')">
   <div class="modal-box" onclick="event.stopPropagation()">
     <div class="modal-close" onclick="closeModal('privacyModal')">✕</div>
@@ -527,6 +530,7 @@ footer{background:var(--dark);border-top:1px solid rgba(201,168,76,0.1);padding:
     <a href="tel:+919342787621" class="m-call">📞 9342787621</a>
   </div>
 </div>
+
 <!-- HERO -->
 <section class="hero" id="hero">
   <div class="hero-bg"><div class="hbg"></div><div class="hgrid"></div><div class="hglow"></div></div>
@@ -551,7 +555,9 @@ footer{background:var(--dark);border-top:1px solid rgba(201,168,76,0.1);padding:
     </div>
     <div class="hero-scroll"><div class="hsd"></div>Scroll to explore</div>
   </div>
-</section><!-- SOCIAL BAR -->
+</section>
+
+<!-- SOCIAL BAR -->
 <div class="social-bar">
   <div class="social-bar-inner">
     <a href="https://wa.me/919342787621" class="soc-btn wa" target="_blank" rel="noopener"><span class="soc-icon">💬</span>WhatsApp</a>
@@ -601,7 +607,9 @@ footer{background:var(--dark);border-top:1px solid rgba(201,168,76,0.1);padding:
     <div class="stat-item reveal"><div class="stat-num" data-target="99">0</div><div class="stat-lbl">% Satisfaction</div></div>
     <div class="stat-item reveal"><div class="stat-num" data-target="24">0</div><div class="stat-lbl">Hr Emergency</div></div>
   </div>
-</div><!-- BRANDS -->
+</div>
+
+<!-- BRANDS -->
 <section class="brands-section reveal" id="brands">
   <div class="sl">Brands We Specialize In</div>
   <h2 class="st">Every <em>Superbike</em><br>We Know Intimately</h2>
@@ -787,7 +795,7 @@ footer{background:var(--dark);border-top:1px solid rgba(201,168,76,0.1);padding:
     <div><label class="fl">Preferred Date</label><input type="date" class="fi"></div>
     <div><label class="fl">Issue / Notes</label><textarea class="fta" placeholder="Describe your bike issue..."></textarea></div>
     <div class="pickup-row" onclick="togglePickup()" role="button">
-      <div class="pickup-lbl"><span>🏍️</span><span>Free Pickup &amp; Drop Service</span></div>
+      <div class="pickup-lbl"><span>🏍</span><span>Free Pickup &amp; Drop Service</span></div>
       <div class="toggle" id="pickupToggle"></div>
     </div>
     <button class="btn-p sub-btn" onclick="submitBooking()">✅ Confirm Booking</button>
@@ -955,7 +963,7 @@ const svcData={
 function showSvc(k,btn){
   const d=svcData[k];
   document.getElementById('svcTitle').textContent=d.title;
-  document.getElementById('svcItems').innerHTML=d.items.map((it,i)=><div class="svc-item" style="animation:fadeUp 0.3s ease ${i*35}ms both">${it}</div>).join('');
+  document.getElementById('svcItems').innerHTML=d.items.map((it,i)=>`<div class="svc-item" style="animation:fadeUp 0.3s ease ${i*35}ms both">${it}</div>`).join('');
   document.querySelectorAll('.stab').forEach(t=>t.classList.remove('active'));
   btn.classList.add('active');
 }
@@ -983,14 +991,28 @@ const ho=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecti
 document.querySelectorAll('#healthCard').forEach(el=>ho.observe(el));
 
 /* TRACKER */
-function trackSvc(){const v=document.getElementById('tInput').value.trim();if(!v){alert('Please enter your mobile number or service ID');return}alert('✅ Tracking: '+v+'\n\nStatus: Work In Progress\nETA: Today 5:00 PM\n\nWhatsApp update coming shortly.\n\n— REVORA Team')}
+function trackSvc(){const v=document.getElementById('tInput').value.trim();if(!v){alert('Please enter your mobile number or service ID');return}alert('✅ Tracking: '+v+'
+
+Status: Work In Progress
+ETA: Today 5:00 PM
+
+WhatsApp update coming shortly.
+
+— REVORA Team')}
 
 /* PICKUP */
 let pu=false;
 function togglePickup(){pu=!pu;document.getElementById('pickupToggle').classList.toggle('on',pu)}
 
 /* BOOKING */
-function submitBooking(){alert('🏍️ Booking Confirmed!\n\nThank you! Our team will contact you within 30 minutes.\n\nWhatsApp confirmation coming shortly.\n\n— REVORA Team\n📞 9342787621')}
+function submitBooking(){alert('🏍 Booking Confirmed!
+
+Thank you! Our team will contact you within 30 minutes.
+
+WhatsApp confirmation coming shortly.
+
+— REVORA Team
+📞 9342787621')}
 
 /* FAQ */
 function toggleFaq(q){const item=q.parentElement;item.classList.toggle('open')}
