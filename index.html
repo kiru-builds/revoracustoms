@@ -18,7 +18,7 @@
   --white:#F5F0E8;--red:#C0392B;--green:#25D366;
   --nav-h:64px;
 }
-,::before,*::after{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth}
 body{background:var(--black);color:var(--white);font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
@@ -799,7 +799,9 @@ footer{background:var(--dark);border-top:1px solid rgba(201,168,76,0.1);padding:
     <div class="ib"><div class="ibt">Service Hours</div><div class="ibb">Mon–Sat: 9 AM – 7 PM<br>Sunday: By Appointment<br>Emergency: 24/7</div></div>
     <div class="ib"><div class="ibt">Free Pickup &amp; Drop</div><div class="ibb">We collect your superbike from anywhere in Chennai and return it fully serviced.</div></div>
   </div>
-</section><!-- CONTACT SECTION -->
+</section>
+
+<!-- CONTACT SECTION -->
 <section class="contact-section" id="contact">
   <div class="sl reveal">Get In Touch</div>
   <h2 class="st reveal">Contact <em>REVORA</em></h2>
@@ -899,7 +901,7 @@ window.addEventListener('load',()=>{setTimeout(()=>document.getElementById('load
     constructor(){this.reset()}
     reset(){this.x=Math.random()*W;this.y=Math.random()*H;this.s=Math.random()*1.5+0.3;this.vx=(Math.random()-0.5)*0.3;this.vy=(Math.random()-0.5)*0.3;this.o=Math.random()*0.4+0.1;this.od=Math.random()>0.5?1:-1}
     update(){this.x+=this.vx;this.y+=this.vy;this.o+=0.003*this.od;if(this.o>0.5||this.o<0.05)this.od*=-1;if(this.x<0||this.x>W||this.y<0||this.y>H)this.reset()}
-    draw(){ctx.beginPath();ctx.arc(this.x,this.y,this.s,0,Math.PI*2);ctx.fillStyle=rgba(201,168,76,${this.o});ctx.fill()}
+    draw(){ctx.beginPath();ctx.arc(this.x,this.y,this.s,0,Math.PI*2);ctx.fillStyle=`rgba(201,168,76,${this.o})`;ctx.fill()}
   }
   const n=window.innerWidth<768?35:70;
   for(let i=0;i<n;i++)pts.push(new P());
@@ -908,7 +910,7 @@ window.addEventListener('load',()=>{setTimeout(()=>document.getElementById('load
     pts.forEach(p=>{p.update();p.draw()});
     for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){
       const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
-      if(d<80){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle=rgba(201,168,76,${0.06*(1-d/80)});ctx.lineWidth=0.5;ctx.stroke()}
+      if(d<80){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle=`rgba(201,168,76,${0.06*(1-d/80)})`;ctx.lineWidth=0.5;ctx.stroke()}
     }
     requestAnimationFrame(anim);
   }
@@ -981,28 +983,14 @@ const ho=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecti
 document.querySelectorAll('#healthCard').forEach(el=>ho.observe(el));
 
 /* TRACKER */
-function trackSvc(){const v=document.getElementById('tInput').value.trim();if(!v){alert('Please enter your mobile number or service ID');return}alert('✅ Tracking: '+v+'
-
-Status: Work In Progress
-ETA: Today 5:00 PM
-
-WhatsApp update coming shortly.
-
-— REVORA Team')}
+function trackSvc(){const v=document.getElementById('tInput').value.trim();if(!v){alert('Please enter your mobile number or service ID');return}alert('✅ Tracking: '+v+'\n\nStatus: Work In Progress\nETA: Today 5:00 PM\n\nWhatsApp update coming shortly.\n\n— REVORA Team')}
 
 /* PICKUP */
 let pu=false;
 function togglePickup(){pu=!pu;document.getElementById('pickupToggle').classList.toggle('on',pu)}
 
 /* BOOKING */
-function submitBooking(){alert('🏍️ Booking Confirmed!
-
-Thank you! Our team will contact you within 30 minutes.
-
-WhatsApp confirmation coming shortly.
-
-— REVORA Team
-📞 9342787621')}
+function submitBooking(){alert('🏍️ Booking Confirmed!\n\nThank you! Our team will contact you within 30 minutes.\n\nWhatsApp confirmation coming shortly.\n\n— REVORA Team\n📞 9342787621')}
 
 /* FAQ */
 function toggleFaq(q){const item=q.parentElement;item.classList.toggle('open')}
