@@ -160,7 +160,7 @@ section{padding:68px 22px;position:relative}
 .estimator-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent)}
 .est-row{display:flex;flex-direction:column;gap:3px;margin-bottom:3px}
 .est-label{font-size:9px;letter-spacing:2px;color:rgba(245,240,232,0.35);text-transform:uppercase;padding-left:2px;margin-bottom:5px;display:block}
-.est-select,.est-input{background:rgba(201,168,76,0.04);border:1px solid rgba(201,168,76,0.12);padding:15px 16px;color:var(--white);font-family:'DM Sans',sans-serif;font-size:16px;outline:none;width:100%;border-radius:0;min-height:50px;transition:border-color 0.3s}
+.est-select,.est-input{background:rgba(201,168,76,0.04);border:1px solid rgba(201,168,76,0.12);padding:15px 16px;color:var(--white);font-family:'DM Sans',sans-serif;font-size:16px;outline:none;width:100%;-webkit-appearance:none;border-radius:0;min-height:50px;transition:border-color 0.3s}
 .est-select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C9A84C' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;background-color:rgba(201,168,76,0.04);padding-right:40px;cursor:pointer}
 .est-select:focus,.est-input:focus{border-color:var(--gold);background:rgba(201,168,76,0.07)}
 .est-select option{background:#141414}
@@ -191,7 +191,7 @@ section{padding:68px 22px;position:relative}
 .tracker-card{margin-top:36px;border:1px solid rgba(201,168,76,0.15);padding:26px 18px;background:var(--black);position:relative;overflow:hidden}
 .tracker-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent)}
 .t-row{display:flex;margin-bottom:28px}
-.t-inp{flex:1;background:rgba(201,168,76,0.04);border:1px solid rgba(201,168,76,0.15);border-right:none;padding:14px 15px;color:var(--white);font-family:'DM Sans',sans-serif;font-size:16px;outline:none;border-radius:0;min-height:50px}
+.t-inp{flex:1;background:rgba(201,168,76,0.04);border:1px solid rgba(201,168,76,0.15);border-right:none;padding:14px 15px;color:var(--white);font-family:'DM Sans',sans-serif;font-size:16px;outline:none;-webkit-appearance:none;border-radius:0;min-height:50px}
 .t-inp::placeholder{color:rgba(245,240,232,0.25)}
 .t-inp:focus{border-color:var(--gold)}
 .t-btn{background:linear-gradient(135deg,var(--gold-d),var(--gold));color:var(--black);border:none;padding:14px 20px;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;min-height:50px;font-family:'DM Sans',sans-serif;white-space:nowrap}
@@ -281,7 +281,7 @@ section{padding:68px 22px;position:relative}
 .booking-section{background:var(--dark2);border-top:1px solid rgba(201,168,76,0.08)}
 .bform{display:flex;flex-direction:column;gap:3px;margin-top:36px}
 .fl{font-size:9px;letter-spacing:2px;color:rgba(245,240,232,0.35);text-transform:uppercase;padding-left:2px;margin-bottom:5px;display:block}
-.fi,.fs,.fta{background:rgba(201,168,76,0.04);border:1px solid rgba(201,168,76,0.12);padding:15px 16px;color:var(--white);font-family:'DM Sans',sans-serif;font-size:16px;outline:none;width:100%;appearance:none;border-radius:0;min-height:52px;transition:border-color 0.3s}
+.fi,.fs,.fta{background:rgba(201,168,76,0.04);border:1px solid rgba(201,168,76,0.12);padding:15px 16px;color:var(--white);font-family:'DM Sans',sans-serif;font-size:16px;outline:none;width:100%;-webkit-appearance:none;border-radius:0;min-height:52px;transition:border-color 0.3s}
 .fs{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C9A84C' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;background-color:rgba(201,168,76,0.04);padding-right:40px;cursor:pointer}
 .fta{resize:vertical;min-height:100px}
 .fi:focus,.fs:focus,.fta:focus{border-color:var(--gold);background:rgba(201,168,76,0.07)}
@@ -991,23 +991,56 @@ const ho=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecti
 document.querySelectorAll('#healthCard').forEach(el=>ho.observe(el));
 
 /* TRACKER */
-function trackSvc(){const v=document.getElementById('tInput').value.trim();if(!v){alert('Please enter your mobile number or service ID');return}alert('✅ Tracking: '+v+'\n\nStatus: Work In Progress\nETA: Today 5:00 PM\n\nWhatsApp update coming shortly.\n\n— REVORA Team')}
+function trackSvc(){const v=document.getElementById('tInput').value.trim();if(!v){alert('Please enter your mobile number or service ID');return}alert('✅ Tracking: '+v+'
+
+Status: Work In Progress
+ETA: Today 5:00 PM
+
+WhatsApp update coming shortly.
+
+— REVORA Team')}
 
 /* PICKUP */
 let pu=false;
 function togglePickup(){pu=!pu;document.getElementById('pickupToggle').classList.toggle('on',pu)}
 
 /* BOOKING */
-/* BOOKING */
 function submitBooking(){
-  alert(`🏍 Booking Confirmed!
-
-Thank you! Our team will contact you within 30 minutes.
-
-WhatsApp confirmation coming shortly.
-
-— REVORA Team
-📞 9342787621`)
+  const inputs=document.querySelectorAll('.bform .fi');
+  const selects=document.querySelectorAll('.bform .fs');
+  const name=inputs[0]?inputs[0].value.trim():'';
+  const phone=inputs[1]?inputs[1].value.trim():'';
+  const date=inputs[2]?inputs[2].value:'';
+  const brand=selects[0]?selects[0].value:'';
+  const pkg=selects[1]?selects[1].value:'';
+  const issue=document.querySelector('.bform .fta')?document.querySelector('.bform .fta').value.trim():'';
+  const pickup=document.getElementById('pickupToggle').classList.contains('on')?'Yes':'No';
+  if(!name){alert('Please enter your full name');return;}
+  if(!phone){alert('Please enter your mobile number');return;}
+  if(!brand){alert('Please select your bike brand');return;}
+  const msg='\ud83c\udfd9 NEW BOOKING - REVORA\n\n'
+    +'Name: '+name+'\n'
+    +'Phone: '+phone+'\n'
+    +'Bike: '+brand+'\n'
+    +'Package: '+(pkg||'Not selected')+'\n'
+    +'Date: '+(date||'Not specified')+'\n'
+    +'Issue: '+(issue||'Not mentioned')+'\n'
+    +'Pickup & Drop: '+pickup+'\n\n'
+    +'-- Sent from REVORA Website';
+  window.open('https://wa.me/919342787621?text='+encodeURIComponent(msg),'_blank');
+  const FORM_ID='mbderkjv';
+  if(FORM_ID!=='YOUR_FORM_ID'){
+    fetch('https://formspree.io/f/'+FORM_ID,{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({_subject:'New Booking: '+name+' - '+brand,Name:name,Phone:phone,Bike:brand,Package:pkg,Date:date,Issue:issue,Pickup:pickup})
+    }).catch(e=>console.log(e));
+  }
+  alert('Booking Submitted!\n\nWhatsApp message sent to REVORA!\nWe will call you within 30 minutes.\n\n9342787621');
+  inputs.forEach(i=>i.value='');
+  selects.forEach(s=>s.selectedIndex=0);
+  const ta=document.querySelector('.bform .fta');if(ta)ta.value='';
+  if(pu){pu=false;document.getElementById('pickupToggle').classList.remove('on');}
 }
 
 /* FAQ */
